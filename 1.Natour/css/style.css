@@ -1,0 +1,153 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  font-size: 16px;
+  color: #777;
+  padding: 20px;
+}
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), #28b485),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  /* tool :clippy 
+  clip-path: polygon(x y,x y,x y); all four corner points in clockwiseOrder  
+  clip-path: polygon(50% 0,50% 0,  100% 100% ,0 100%); clip-path: polygon(50% 0,  100% 100% ,0 100%); both are same 
+   */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 75vh,
+    0 100%
+  ); /*here 75vh means 75percent of viewport height it changes dynamically*/
+  position: relative;
+}
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+.logo {
+  height: 35px;
+}
+.logo:hover {
+  animation: moveInRight 1s ease-out;
+}
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  backface-visibility: hidden; /*in animation their is some issue which is test moves upward/shakes so to fix this issue we use this property ,it determines if the part of element when we transform it is visible or hidden from user,when we rotating any thing we can see the back part of element if this was not hidden*/
+}
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  /*---------------------------Animation Properties-----------------------------*/
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /*
+   animation-delay: 2s; /animations start after 2s when page loads /
+   animation-iteration-count: 3; /animation runs 3 times/
+   animation-timing-function: ease in; /sets how an animation progresses through the duration of each cycle.with ease-in func animation starts slower and then accelerate over time,ease-out  its the opposite,cubic-bezier allows us to write custom function/
+
+
+
+   animation: moveInLeft 1s;   shortHand Property
+  */
+}
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  /*Animation Shorthand Property*/
+  animation: moveInRight 1s ease-out;
+  margin-bottom: 60px;
+}
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+  /* 60%{
+    transform: rotate(120deg);
+  } */
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 10px 10px 20px rgb(0, 0, 0, 0.4);
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+  content: ""; /*content property always necessary always*/
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+}
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+.btn-white::after {
+}

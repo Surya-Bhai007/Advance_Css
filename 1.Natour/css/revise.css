@@ -1,0 +1,98 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/*Universal selectors*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* to change the box model so that borders and padding are no longer added to the total width or height that we specify for the box */
+}
+body {
+  font-family: "Lato", sans-serif;
+  /*Every thing related to font we specify in body . 
+    this font family is inherited by its all child elements of the body */
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7; /*means its 1.7 times bigger than its predefined line height*/
+  color: #777;
+  padding: 30px; /*for white space around entire body*/
+}
+.header {
+  height: 95vh; /*at every point the height of the box of the element should be 95% of the viewport height*/
+  background-image: linear-gradient(
+      to bottom right,
+      rgba(126, 213, 111, 0.802),
+      rgba(40, 180, 133, 0.803)
+    ),
+    url("../img/hero.jpg");
+  /*
+  -> here top is linear-gradient below thar url image ,here order matters ,first one on top ,second one below that one similarly for third one and so on.
+  -> to right:css understands start from left side and go to the right side . in Linear-gradient property 
+  */
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative;
+}
+/*align the logo box left top corner using the positioning */
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+.logo {
+  height: 35px;
+}
+.text-box{
+    position:absolute;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.heading-primary {
+  color: #ffff;
+  text-transform: uppercase;
+}
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  
+  /* animation-iteration-count: 3;
+  
+  animation-delay: 3s;
+  */
+}
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 16px;
+}
+
+@keyframes moveInLeft {
+  0%{
+opacity: 0;
+transform: translateX(-10px);
+  }
+  80%{
+    transform: translateX(20px);
+  }
+  100%{
+opacity: 1;
+
+transform: translateX(0);
+
+  }
+}
